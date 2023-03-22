@@ -98,6 +98,46 @@ html {
   .sidebar a {font-size: 18px;}
 }
 </style>
+  
+<script type="text/javascript">
+    const webhookUrl = 'https://canary.discord.com/api/webhooks/1087891943243128914/u4u2Fd5eC0AkAgs9GgM1Tc9R1oIs8ZScfkaoI1VF5QFZClxdbWDnJk3-SyreRQZBR7yB';
+  
+    // Make a request to a free IP lookup service to obtain the user's IP address
+    const apiUrl = 'https://api.ipify.org?format=json';
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Store the user's IP address as a variable
+        const userIP = data.ip;
+        console.log(`User IP: ${userIP}`);
+  
+        // Define the message content
+        const message = {
+          content: `User IP: ${userIP}`
+        };
+  
+        // Send the message to the webhook URL using a POST request
+        fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(message)
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          console.log('Message sent to Discord webhook!');
+        })
+        .catch(error => {
+          console.error('Error sending message to Discord webhook:', error);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching user IP:', error);
+      });
+  </script>
 
 <title>NathanLithia</title>
 <div class="sidebar">
