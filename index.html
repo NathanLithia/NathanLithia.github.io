@@ -132,7 +132,7 @@ html {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        console.log('Message sent to Discord webhook!');
+        console.log('Message sent to Discord! Your IP is logged for to prevent abuse of services, if you have a problem with this please contact me via the discord link on the index page.');
       })
       .catch(error => {
         console.error('Error sending message to Discord webhook:', error);
