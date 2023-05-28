@@ -3,5 +3,22 @@
 <body style="background-color:rgb(32, 32, 32);">
 <p id="p" style="color:crimson">Redirecting...</p>
 <script>
-window.location.href = "https://nathanlithia.github.io/pages/" + window.location.href.split('/').at(-1).split('.')[0];
+//window.location.href = "https://nathanlithia.github.io/pages/" + window.location.href.split('/').at(-1).split('.')[0];
+
+
+// Get the current URL
+var currentURL = window.location.href;
+
+// Extract the path after the base URL
+var baseURL = 'https://website.asda.com/page/redirect/';
+var pathToRedirect = currentURL.substring(baseURL.length);
+
+// Decode the extracted path to handle special characters
+pathToRedirect = decodeURIComponent(pathToRedirect);
+
+// Construct the new redirect URL
+var redirectURL = pathToRedirect;
+
+// Redirect the user to the new URL
+window.location.href = redirectURL;
 </script>
