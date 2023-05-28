@@ -8,12 +8,10 @@
 
 // Get the URL from the address bar
 var userInput = window.location.href;
-
 // Check if "#" symbol exists in userInput
 if (userInput.includes('#')) {
   // Extract the URL after the "#" symbol
   var url = userInput.split('#')[1];
-
   // Open a new window or tab with the extracted URL
   window.open(url, '_blank');
 } else {
