@@ -6,10 +6,18 @@
 //window.location.href = "https://nathanlithia.github.io/pages/" + window.location.href.split('/').at(-1).split('.')[0];
 
 
-// Get the URL entered by the user
+// Get the URL from the address bar
 var userInput = window.location.href;
-// Extract the URL after the "#" symbol
-var url = userInput.split('#')[1];
-// Redirect the user to the extracted URL
-window.location.href = url;
+
+// Check if "#" symbol exists in userInput
+if (userInput.includes('#')) {
+  // Extract the URL after the "#" symbol
+  var url = userInput.split('#')[1];
+
+  // Open a new window or tab with the extracted URL
+  window.open(url, '_blank');
+} else {
+  // Display an error message if "#" symbol is not found
+  console.error("Invalid URL format. Please include '#' in the URL.");
+}
 </script>
