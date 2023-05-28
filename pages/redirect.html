@@ -6,19 +6,10 @@
 //window.location.href = "https://nathanlithia.github.io/pages/" + window.location.href.split('/').at(-1).split('.')[0];
 
 
-// Get the current URL
-var currentURL = window.location.href;
-
-// Extract the path after the base URL
-var baseURL = 'https://website.asda.com/page/redirect/';
-var pathToRedirect = currentURL.substring(baseURL.length);
-
-// Decode the extracted path to handle special characters
-pathToRedirect = decodeURIComponent(pathToRedirect);
-
-// Construct the new redirect URL
-var redirectURL = pathToRedirect;
-
-// Redirect the user to the new URL
-window.location.href = redirectURL;
+// Get the URL entered by the user
+var userInput = window.location.href;
+// Extract the URL after the "#" symbol
+var url = userInput.split('#')[1];
+// Redirect the user to the extracted URL
+window.location.href = url;
 </script>
