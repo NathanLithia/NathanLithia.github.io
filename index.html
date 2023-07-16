@@ -98,45 +98,6 @@ html {
   .sidebar a {font-size: 18px;}
 }
 </style>
-  
-<script type="text/javascript">
-  // Define the webhook URL as an encrypted string
-  const encryptedWebhookUrl = "aHR0cHM6Ly9jYW5hcnkuZGlzY29yZC5jb20vYXBpL3dlYmhvb2tzLzEwODc5MDk1OTM2NTQ0OTc0MDEvdlk4MHFUNjQ1VW5yNS0tNTJidEpTcmpwbUpFUEU1Y3UxTTNzQldxd1pQT1JxTEQ4TWxOYTRxUi10YUZmV2ZuMllqS0s=";
-
-  // Decrypt the webhook URL and use it in the fetch request
-  const webhookUrl = atob(encryptedWebhookUrl);
-
-  // Make a request to a free IP lookup service to obtain the user's IP address
-  const apiUrl = 'https://api.ipify.org?format=json';
-      fetch("https://api.ipify.org?format=json")
-      .then(response => response.json())
-      .then(data => {
-        const ipAddress = data.ip;
-        const userAgent = navigator.userAgent;
-        const currentUrl = window.location.href;
-        const message = '```json\n{\n  "ip": "'+ipAddress+'",\n  "agent": "'+userAgent+'",\n  "url": "'+currentUrl+'"\n}```';
-      // Send the message to the webhook URL using a POST request
-      fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ content: message })
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        console.log('Message sent to Discord! Your IP is logged for to prevent abuse of services, if you have a problem with this please contact me via the discord link on the index page.');
-      })
-      .catch(error => {
-        console.error('Error sending message to Discord webhook:', error);
-      });
-    })
-    .catch(error => {
-      console.error('Error fetching user IP:', error);
-    });
-</script>
 
 <title>NathanLithia</title>
 <div class="sidebar">
