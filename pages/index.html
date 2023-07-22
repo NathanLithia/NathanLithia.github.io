@@ -1,3 +1,117 @@
-<script>
-    window.location.href = "/";
+<html>
+<body>
+<script> //ref https://www.w3schools.com/jsref/dom_obj_style.asp
+  function detectBrowser() { //Detect browser for JS Browser compatibility
+      if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+          return 'Opera';
+      } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+          return 'Chrome';
+      } else if(navigator.userAgent.indexOf("Safari") != -1) {
+          return 'Safari';
+      } else if(navigator.userAgent.indexOf("Firefox") != -1 ){
+          return 'Firefox';
+      } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+          return 'IE';
+      } else {
+          return 'Unknown';
+      }
+  }
+  var BGImages = ['res/fish.apng'] //Background Images
+  var BGRand = BGImages[Math.floor(Math.random()*BGImages.length)];
+  if (detectBrowser() == 'Firefox') {
+    document.body.style.backgroundImage = "url("+BGRand+")";
+    document.body.style.imageRendering = "crisp-edges"; //crispy
+    document.body.style.minheight = '100%'; //only renders correctly if html height is set to 100% wtf?
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+  }
+  else { //Most compatible with browser Chrome
+    document.body.style.backgroundImage = "url("+BGRand+")";
+    document.body.style.imageRendering = "pixelated";
+    document.body.style.height = 100;
+    document.body.style.backgroundPosition = "center";
+    document.body.style.repeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+  }
+
 </script>
+<style>
+body{
+  image-rendering: "pixelated";
+}
+html {
+  height: 100%;
+}
+.sidebar {
+  height: 100%;
+  width: 128px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow-x: hidden;
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.logoimg {
+  background-color: rgba(0, 0, 0, 0.7);
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  }
+.spacer2 {padding-bottom: 2px;}
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  font-family: Arial;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 18px;
+  color: #ffffff;
+  display: block;
+  overflow-x: hidden;
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.sidebar a:hover {
+  color: rgb(185, 255, 255);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.main {
+  margin-left: 160px;
+  padding: 0px 10px;
+}
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+</style>
+
+<title>NathanLithia</title>
+<div class="sidebar">
+  <img class="logoimg" src="res/lithia.svg" alt="test" width="100%">
+  <div class="spacer2"></div>
+  <center>
+  <a class="sideButton" href="https://discord.gg/dFHX4Cu7ZG"><i class="sideButton"></i>Discord</a>
+  <div class="spacer2"></div>
+  <a class="sideButton" href="https://github.com/NathanLithia"><i class="sideButton"></i>Github</a>
+  <div class="spacer2"></div>
+  <a class="sideButton" href="https://nathanlithia.github.io/pages/donations"><i class="sideButton"></i>Donate</a>
+</center>
+</div>
+
+
+</body>
+</html>
