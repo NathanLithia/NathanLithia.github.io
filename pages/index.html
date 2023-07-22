@@ -16,7 +16,7 @@
           return 'Unknown';
       }
   }
-  var BGImages = ['res/fish.apng'] //Background Images
+  var BGImages = ['/res/fish.apng'] //Background Images
   var BGRand = BGImages[Math.floor(Math.random()*BGImages.length)];
   if (detectBrowser() == 'Firefox') {
     document.body.style.backgroundImage = "url("+BGRand+")";
@@ -101,7 +101,7 @@ html {
 
 <title>NathanLithia</title>
 <div class="sidebar">
-  <img class="logoimg" src="res/lithia.svg" alt="test" width="100%">
+  <img class="logoimg" src="/res/lithia.svg" alt="test" width="100%">
   <div class="spacer2"></div>
   <center>
   <a class="sideButton" href="https://discord.gg/dFHX4Cu7ZG"><i class="sideButton"></i>Discord</a>
