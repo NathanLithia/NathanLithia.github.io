@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption</title>
+</head>
+<body>
+    <div id="encryptedData">wqLDicOZwojDksOjwrXDjMOfwojDi8OTwr3DmMOiwojDh8Odw4TCicOew53DlsORw4HCgcOjw57DhsOgbMOdw5zDjcKJw43Cr8Obw63CiMOHw6DCu8OQ</div>
+
+    <script>
+        function encrypt(data) {
+            var key = window.location.hash.substring(1); // Get the key from the URL hash
+            var enc = [];
+            for (var i = 0; i < data.length; i++) {
+                var key_c = key[i % key.length];
+                var enc_c = String.fromCharCode((data.charCodeAt(i) + key_c.charCodeAt(0)) % 256);
+                enc.push(enc_c);
+            }
+            return enc.join('');
+        }
+
+        // Retrieve data from the div content
+        var data = document.getElementById('encryptedData').textContent;
+        // Encrypt the data
+        var encryptedData = encrypt(data);
+        // Update the content of the div with the encrypted data
+        document.getElementById('encryptedData').textContent = encryptedData;
+    </script>
+</body>
+</html>
